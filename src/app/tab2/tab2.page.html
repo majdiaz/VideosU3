@@ -1,17 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Activos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-list>
+    <div *ngFor="let student of students; index as i">
+      <ion-item *ngIf="student.active">
+        <ion-label>{{student.name}}</ion-label>
+        <ion-chip color="success" >
+          <ion-label>Activo</ion-label>
+        </ion-chip>
+      </ion-item>
+    </div>
+  </ion-list>
 </ion-content>

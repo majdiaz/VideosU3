@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Student } from '../models/student';
+import {StudentService} from '../services/student.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,10 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  students: Student[] = new Array();
+
+  constructor(private studentService: StudentService) {
+    this.students = this.studentService.getStudents();
+  }
 
 }
